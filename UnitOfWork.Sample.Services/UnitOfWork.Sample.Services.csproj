@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnitOfWork.Sample.DataAccess\UnitOfWork.Sample.DataAccess.csproj" />
+    <ProjectReference Include="..\UnitOfWork.Sample.Domain\UnitOfWork.Sample.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="UnitOfWork.Core">
+      <HintPath>lib\UnitOfWork.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -3,6 +3,8 @@
     using System;
     using Microsoft.Extensions.DependencyInjection;
     using StructureMap;
+    using UnitOfWork.Core;
+    using UnitOfWork.Sample.DataAccess;
     using UnitOfWork.Sample.IoC.Registries;
 
     public static class IoC
@@ -19,10 +21,9 @@
                 {
                     c.AddRegistry(registry);
                 }
+
             });
-
-            // Container.
-
+           // Container
             return Container;
         }
     }

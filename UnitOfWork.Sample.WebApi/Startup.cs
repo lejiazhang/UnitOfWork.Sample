@@ -14,6 +14,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using UnitOfWork.Sample.Domain.Services;
 using UnitOfWork.Sample.Services.Implementation;
+using UnitOfWork.Sample.IoC.DependencyResolution;
+using UnitOfWork.Sample.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using UnitOfWork.Core;
+using UnitOfWork.Sample.WebApi.DependencyResolution;
 
 namespace UnitOfWork.Sample.WebApi
 {
@@ -26,6 +31,8 @@ namespace UnitOfWork.Sample.WebApi
         {
 
             Configuration = configuration;
+
+            IoC.DependencyResolution.IoC.Iniailize(new DefaultRegistry());
         }
 
         public IConfiguration Configuration { get; }
@@ -38,9 +45,10 @@ namespace UnitOfWork.Sample.WebApi
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TargetDatabase")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<IDataProvider, DataProvider>();
+            services.AddTransient<IArticleService, ArticleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

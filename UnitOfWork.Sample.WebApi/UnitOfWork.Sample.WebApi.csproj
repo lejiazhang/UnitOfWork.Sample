@@ -17,7 +17,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UnitOfWork.Sample.Domain\UnitOfWork.Sample.Domain.csproj" />
+    <ProjectReference Include="..\UnitOfWork.Sample.IoC\UnitOfWork.Sample.IoC.csproj" />
     <ProjectReference Include="..\UnitOfWork.Sample.Services\UnitOfWork.Sample.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="UnitOfWork.Core">
+      <HintPath>..\UnitOfWork.Sample.Services\lib\UnitOfWork.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

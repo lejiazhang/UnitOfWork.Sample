@@ -10,6 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="BC.UnitOfWork.Core">
+      <HintPath>lib\BC.UnitOfWork.Core.dll</HintPath>
+    </Reference>
     <Reference Include="UnitOfWork.Core">
       <HintPath>lib\UnitOfWork.Core.dll</HintPath>
     </Reference>
